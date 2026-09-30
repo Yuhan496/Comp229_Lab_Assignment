@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 import References from "./pages/References";
 import Contact from "./pages/Contact";
  
-function mainRouter() {
+function MainRouter() {
   return (
     <>
       <Layout />
@@ -23,4 +23,4 @@ function mainRouter() {
     </>
   );
 }
-export default mainRouter;
+export default MainRouter;
