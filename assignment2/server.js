@@ -7,10 +7,15 @@ var debug = require('debug')('comp229:server');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-configDB();
 
+var dbConnection = configDB();
 var server = http.createServer(app);
-server.listen(port);
+dbConnection.then(function () {
+  server.listen(port);
+}).catch(function (error) {
+  console.error("Database connection failed:", error.message);
+  process.exit(1);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
